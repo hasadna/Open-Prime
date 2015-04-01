@@ -1,19 +1,7 @@
-Welcome to Open-Prime Users' documentation!
-===================================================
+Quick Start
+===========
 
 .. note:: nothing really works yet
-
-Open Prime helps you host your project's live and development servers.
-It includes Postgres, Mongo and Redis servers for your backend,
-wraps your app server with Varnish and Nginx and servs your files from a CDN.
-
-After a simple setup, your servers will be automaticly updated
-whenever you update your git repository. The system assumes you are using
-Travis for CI and if you are not, please stop reading
-this guide and add Travis_ to your project.
-
-Quick Start
------------
 
 First you'll need to get install the `opri` CLI::
 
