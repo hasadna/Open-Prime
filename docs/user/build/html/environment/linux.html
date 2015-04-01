@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Linux &mdash; Open-Subs Developers 0.5 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open-Subs Developers 0.5 documentation" href="../index.html" />
+    <link rel="up" title="Setting up the development environment" href="index.html" />
+    <link rel="next" title="MS Windows" href="windows.html" />
+    <link rel="prev" title="Setting up the development environment" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="windows.html" title="MS Windows"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Setting up the development environment"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open-Subs Developers 0.5 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Setting up the development environment</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="linux">
+<h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installing-initial-requirements">
+<h2>Installing Initial Requirements<a class="headerlink" href="#installing-initial-requirements" title="Permalink to this headline">¶</a></h2>
+<p>On Linux we&#8217;ll be creating a clean virtualenv, so in addtion we&#8217;ll need
+developer tools (to compile PIL, lxml etc).</p>
+<div class="section" id="debian-and-derivatives-like-ubuntu-and-mint">
+<h3>Debian and derivatives like Ubuntu and Mint<a class="headerlink" href="#debian-and-derivatives-like-ubuntu-and-mint" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre>sudo apt-get install build-essential git python python-dev python-setuptools python-virtualenv python-pip
+sudo apt-get build-dep python-imaging
+sudo apt-get build-dep python-lxml
+</pre></div>
+</div>
+</div>
+<div class="section" id="fedora">
+<h3>Fedora<a class="headerlink" href="#fedora" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre>sudo yum groupinstall <span class="s2">&quot;Development Tools&quot;</span> <span class="s2">&quot;Development Libraries&quot;</span>
+sudo yum install git python python-devel python-setuptools python-virtualenv python-pip libjpeg-turbo-devel libpng-devel libxml2-devel libxslt-devel
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-and-activating-the-virtualenv">
+<h2>Creating and Activating the virtualenv<a class="headerlink" href="#creating-and-activating-the-virtualenv" title="Permalink to this headline">¶</a></h2>
+<p>Navigate in a terminal to the directory you want the
+environment created in (usually under your home directory). We&#8217;ll name the
+created environment <tt class="docutils literal"><span class="pre">osubs</span></tt>.</p>
+<p>Once in that directory:</p>
+<div class="highlight-sh"><div class="highlight"><pre>virtualenv osubs
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>In case you have both Python 2 and 3 installed, please make sure the virtualenv
+is created with Python 2. If that&#8217;s not the case, pass the correct python
+executable to the virtualenv command. e.g:</p>
+<div class="highlight-sh"><div class="highlight"><pre>virtualenv -p python2 osubs
+</pre></div>
+</div>
+<p class="last">To check which is the default interpreter virtualenv will use, run
+<tt class="docutils literal"><span class="pre">virtualenv</span> <span class="pre">-h</span></tt> and check in the output the default for <cite>-p</cite> flag.</p>
+</div>
+<p>We need to <cite>activate</cite> the virtual environment (it mainly modifies the paths so
+that correct packages and bin directories will be found) each time we wish to
+work on the code.</p>
+<p>In Linux we&#8217;ll source the activation script (to set env vars):</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nb">cd </span>osubs/
+. bin/activate
+</pre></div>
+</div>
+<p>Note the changed prompt which includes the virtualenv&#8217;s name.</p>
+</div>
+<div class="section" id="getting-the-source-code-a-k-a-cloning">
+<h2>Getting the Source Code (a.k.a Cloning)<a class="headerlink" href="#getting-the-source-code-a-k-a-cloning" title="Permalink to this headline">¶</a></h2>
+<p>Now we&#8217;ll clone the forked repository into the virutalenv.  Make sure you&#8217;re in
+the <cite>osubs</cite> directory and run:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/your-username/Open-Subs.git .
+</pre></div>
+</div>
+<p>Replace <cite>your-username</cite> with the username you&#8217;ve registered at git hub.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>It is recommended to authenticate ssh keys, in that case follow the
+<a class="reference external" href="https://help.github.com/articles/generating-ssh-keys#platform-linux">github guide on ssh keys</a>. Once you&#8217;ve done that, your clone command
+will look like:</p>
+<div class="last highlight-python"><div class="highlight"><pre>git@github.com:your-username/Open-Subs.git
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you have forked Open-Subs in the past, make sure you have the latest version before proceeding to installation, by invoking:</p>
+<div class="last highlight-python"><div class="highlight"><pre>git remote add hasadna https://github.com/hasadna/Open-Subs.git
+git pull hasadna master
+git push origin master
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="installing-requirements">
+<h2>Installing requirements<a class="headerlink" href="#installing-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Still in the terminal with the virtualenv activated, inside the <em>osubs</em> directory,
+run:</p>
+<div class="highlight-sh"><div class="highlight"><pre>pip install -r requirements.txt
+</pre></div>
+</div>
+<p>And wait ...</p>
+<p>Once done, proceed to <a class="reference internal" href="tests_db.html#tests-develdb"><em>Initial Testing, Development DB &amp; Server</em></a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Linux</a><ul>
+<li><a class="reference internal" href="#installing-initial-requirements">Installing Initial Requirements</a><ul>
+<li><a class="reference internal" href="#debian-and-derivatives-like-ubuntu-and-mint">Debian and derivatives like Ubuntu and Mint</a></li>
+<li><a class="reference internal" href="#fedora">Fedora</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#creating-and-activating-the-virtualenv">Creating and Activating the virtualenv</a></li>
+<li><a class="reference internal" href="#getting-the-source-code-a-k-a-cloning">Getting the Source Code (a.k.a Cloning)</a></li>
+<li><a class="reference internal" href="#installing-requirements">Installing requirements</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Setting up the development environment</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="windows.html"
+                        title="next chapter">MS Windows</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/environment/linux.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="windows.html" title="MS Windows"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Setting up the development environment"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open-Subs Developers 0.5 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Setting up the development environment</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Hasadna.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Developing for the Angular frontend &mdash; Open-Subs Developers 0.5 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Open-Subs Developers 0.5 documentation" href="index.html" />
+    <link rel="prev" title="Browser testing" href="browsertests.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="browsertests.html" title="Browser testing"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Open-Subs Developers 0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="developing-for-the-angular-frontend">
+<span id="angular"></span><h1>Developing for the Angular frontend<a class="headerlink" href="#developing-for-the-angular-frontend" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pre-requisites">
+<h2>Pre-Requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this headline">¶</a></h2>
+<p>Instructions were tested on Ubuntu, but should work similarly on Windows</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="c"># Install nvm, follow instructions here: https://github.com/creationix/nvm</span>
+<span class="c"># After nvm is installed, run the following:</span>
+<span class="nv">$ </span>nvm install stable
+<span class="c"># To automatically use the stable node on login, add the following to the bottom of ~/.bashrc:</span>
+nvm use stable
+<span class="c"># Install grunt and bower globally:</span>
+<span class="nv">$ </span>npm install bower -g
+<span class="nv">$ </span>npm install grunt-cli -g
+<span class="c"># Install rvm with stable ruby, follow instructions here: https://rvm.io/rvm/install</span>
+<span class="c"># Install compass:</span>
+<span class="nv">$ </span>gem install compass
+</pre></div>
+</div>
+</div>
+<div class="section" id="updating-node-and-bower-modules">
+<h2>Updating node and bower modules<a class="headerlink" href="#updating-node-and-bower-modules" title="Permalink to this headline">¶</a></h2>
+<p>This is like Python&#8217;s requirements.txt - should be run from time to time, if requirements were updated.</p>
+<div class="highlight-sh"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd </span>Open-Knesset/angular
+angular<span class="nv">$ </span>npm install
+angular<span class="nv">$ </span>bower install
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-the-frontend-server-s-settings">
+<h2>Setting the frontend server&#8217;s settings<a class="headerlink" href="#setting-the-frontend-server-s-settings" title="Permalink to this headline">¶</a></h2>
+<p>The angular local settings contains the url to the django backend server.</p>
+<p>Just copy Open-Knesset/angular/app/settings.js.dist to settings.js</p>
+<p>Then modify if needed (by default it will run with localhost:8000)</p>
+</div>
+<div class="section" id="running-the-front-end-development-server">
+<h2>Running the front-end development server<a class="headerlink" href="#running-the-front-end-development-server" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span class="c"># cd Open-Knesset/angular</span>
+angular<span class="nv">$ </span>grunt serve
+</pre></div>
+</div>
+<p>That&#8217;s it!</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Developing for the Angular frontend</a><ul>
+<li><a class="reference internal" href="#pre-requisites">Pre-Requisites</a></li>
+<li><a class="reference internal" href="#updating-node-and-bower-modules">Updating node and bower modules</a></li>
+<li><a class="reference internal" href="#setting-the-frontend-server-s-settings">Setting the frontend server&#8217;s settings</a></li>
+<li><a class="reference internal" href="#running-the-front-end-development-server">Running the front-end development server</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="browsertests.html"
+                        title="previous chapter">Browser testing</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/front_end.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="browsertests.html" title="Browser testing"
+             >previous</a> |</li>
+        <li><a href="index.html">Open-Subs Developers 0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Hasadna.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

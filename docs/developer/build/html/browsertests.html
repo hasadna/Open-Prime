@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Browser testing &mdash; Open-Subs Developers 0.5 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Open-Subs Developers 0.5 documentation" href="index.html" />
+    <link rel="next" title="Developing for the Angular frontend" href="front_end.html" />
+    <link rel="prev" title="Development Tips" href="tips.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="front_end.html" title="Developing for the Angular frontend"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tips.html" title="Development Tips"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Open-Subs Developers 0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="browser-testing">
+<span id="browser-tests"></span><h1>Browser testing<a class="headerlink" href="#browser-testing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="running-browser-tests">
+<h2>Running Browser Tests<a class="headerlink" href="#running-browser-tests" title="Permalink to this headline">¶</a></h2>
+<p>Browser tests are run with a different test runner, so running ./manage.py test will not run the browser tests.</p>
+<p>Instead, you have to specify a different test runner:</p>
+<div class="highlight-sh"><div class="highlight"><pre>./manage.py <span class="nb">test</span> --testrunner<span class="o">=</span>knesset.browser_test_runner.Runner
+</pre></div>
+</div>
+<p>This test runner looks for files that start with browser_cases and runs only the tests contained in those files.</p>
+<p>You can run the tests locally - on your own browser, or remotely:</p>
+<div class="section" id="running-tests-locally">
+<h3>Running tests locally<a class="headerlink" href="#running-tests-locally" title="Permalink to this headline">¶</a></h3>
+<p>By default the tests run locally using Firefox. You can specify a different browser using the &#8211;browser parameter.</p>
+<div class="highlight-sh"><div class="highlight"><pre>./manage.py <span class="nb">test</span> --testrunner<span class="o">=</span>knesset.browser_test_runner.Runner --browser<span class="o">=</span>Chrome
+</pre></div>
+</div>
+<p>The tests are run using selenium, check the selenium docs for available browser options: <a class="reference external" href="http://selenium-python.readthedocs.org/api.html">http://selenium-python.readthedocs.org/api.html</a></p>
+</div>
+<div class="section" id="running-tests-remotely-using-saucelabs">
+<h3>Running tests remotely - using SauceLabs<a class="headerlink" href="#running-tests-remotely-using-saucelabs" title="Permalink to this headline">¶</a></h3>
+<p>A better option for running tests is using the SauceLabs service (<a class="reference external" href="https://saucelabs.com/">https://saucelabs.com/</a>). You will first need a username and access key - we have an open source license for SauceLabs but to avoid misuse we can&#8217;t provide it here, ask your fellow Open Knesset developer for this.</p>
+<p>To use SauceLabs you first need to setup a tunnel from your local server to their remote service. This is done using Sauce Connect, see the SauceLabs docs for how to install and use it: <a class="reference external" href="https://docs.saucelabs.com/reference/sauce-connect/">https://docs.saucelabs.com/reference/sauce-connect/</a></p>
+<p>Once you have the Sauce Connect tunner working using the username and accesskey, you can run the tests:</p>
+<div class="highlight-sh"><div class="highlight"><pre>./manage.py <span class="nb">test</span> --testrunner<span class="o">=</span>knesset.browser_test_runner.Runner --browser<span class="o">=</span>Sauce --sauce-user<span class="o">=</span>OpenKnesset --sauce-accesskey<span class="o">=</span>ACCESS_KEY
+</pre></div>
+</div>
+<p>In the test output you can find links to the test sessions, something like this: <a class="reference external" href="https://saucelabs.com/jobs/0383bb8bb3094a35b36edfd4e68aa094">https://saucelabs.com/jobs/0383bb8bb3094a35b36edfd4e68aa094</a></p>
+<p>Note that all the test sessions are publicly available because we have an open source license.</p>
+</div>
+</div>
+<div class="section" id="writing-tests">
+<h2>Writing tests<a class="headerlink" href="#writing-tests" title="Permalink to this headline">¶</a></h2>
+<p>Tests are written using the python selenium bindings and the standard django unit tests framework.</p>
+<p>All browser test file names must be in the format browser_cases*.py</p>
+<p>You can see a simple test in knesset/browser_cases.py - it is commented with useful details.</p>
+<p>Refer to the selenium python documentation for help on using selenium: <a class="reference external" href="http://selenium-python.readthedocs.org">http://selenium-python.readthedocs.org</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Browser testing</a><ul>
+<li><a class="reference internal" href="#running-browser-tests">Running Browser Tests</a><ul>
+<li><a class="reference internal" href="#running-tests-locally">Running tests locally</a></li>
+<li><a class="reference internal" href="#running-tests-remotely-using-saucelabs">Running tests remotely - using SauceLabs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#writing-tests">Writing tests</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tips.html"
+                        title="previous chapter">Development Tips</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="front_end.html"
+                        title="next chapter">Developing for the Angular frontend</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/browsertests.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="front_end.html" title="Developing for the Angular frontend"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tips.html" title="Development Tips"
+             >previous</a> |</li>
+        <li><a href="index.html">Open-Subs Developers 0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Hasadna.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

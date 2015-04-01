@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Setting up the development environment &mdash; Open-Subs Developers 0.5 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Open-Subs Developers 0.5 documentation" href="../index.html" />
+    <link rel="next" title="Linux" href="linux.html" />
+    <link rel="prev" title="GitHub and Source Code" href="../github.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="linux.html" title="Linux"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../github.html" title="GitHub and Source Code"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Open-Subs Developers 0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="setting-up-the-development-environment">
+<h1>Setting up the development environment<a class="headerlink" href="#setting-up-the-development-environment" title="Permalink to this headline">¶</a></h1>
+<p>There are several initial requirements for Open-Knesset, mainly:</p>
+<ul class="simple">
+<li>Python 2.x (including dev files)</li>
+<li>setuptools</li>
+<li>virtualenv</li>
+<li>pip</li>
+<li>git</li>
+</ul>
+<p>The section will guide you on:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#installing-initial-requirements">Installing Initial Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#creating-and-activating-the-virtualenv">Creating and Activating the virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#getting-the-source-code-a-k-a-cloning">Getting the Source Code (a.k.a Cloning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#installing-requirements">Installing requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="windows.html">MS Windows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="windows.html#installing-initial-requirements">Installing Initial Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows.html#git-and-github-tools">git and GitHub tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows.html#creating-and-activating-the-virtualenv">Creating and Activating the virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows.html#getting-the-source-code-a-k-a-cloning">Getting the Source Code (a.k.a Cloning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows.html#installing-requirements">Installing requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="osx.html">OS X</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="osx.html#command-line-tools">Command Line Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="osx.html#install-pip-and-virtualenv">Install pip and virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="osx.html#install-basic-dependencies">Install basic dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="osx.html#creating-and-activating-the-virtualenv">Creating and Activating the virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="osx.html#getting-the-source-code-a-k-a-cloning">Getting the Source Code (a.k.a Cloning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="osx.html#installing-requirements">Installing requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tests_db.html">Initial Testing, Development DB &amp; Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tests_db.html#running-tests">Running Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests_db.html#download-the-development-db">Download the Development DB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests_db.html#running-the-development-server">Running the Development server</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../github.html"
+                        title="previous chapter">GitHub and Source Code</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="linux.html"
+                        title="next chapter">Linux</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/environment/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="linux.html" title="Linux"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../github.html" title="GitHub and Source Code"
+             >previous</a> |</li>
+        <li><a href="../index.html">Open-Subs Developers 0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Hasadna.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
