@@ -19,7 +19,8 @@ Contents:
     :maxdepth: 2
 
     quick_start
-    developer
+    development
+    research
 
 .. _Travis: http://travis-ci.com
 .. _Docker: https://docker.com

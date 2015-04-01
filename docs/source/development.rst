@@ -1,8 +1,8 @@
-Developer Documentation
-=======================
+Development
+===========
 
 Open Prime lets' an organization host all its web projects
-in on one machine using Docker_.
+in on one machine using Docker_ containers.
 
 .. note:: if you're ready to contribute, check out our board_.
 
