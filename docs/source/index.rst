@@ -21,12 +21,5 @@ Contents:
     quick_start
     developer
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
 .. _Travis: http://travis-ci.com
 .. _Docker: https://docker.com
